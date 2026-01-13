@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog | CODE CRAFT </title>
+    <meta name="description" content="Explore CODE CRAFT's blog featuring workshop highlights, coding tutorials, and insights from our expert trainers. Learn about web development, programming, and tech education in Mumbai.">
+    <meta name="keywords" content="coding blog, web development workshops, programming tutorials, tech education Mumbai, coding workshops, web development training, programming courses">
+    <meta name="author" content="CODE CRAFT">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="CODE CRAFT Blog - Web Development & Programming Insights">
+    <meta property="og:description" content="Discover workshop highlights, coding tutorials, and expert insights from CODE CRAFT's training programs.">
+    <meta property="og:image" content="../../static/images/codecraft.png">
+    <meta property="og:url" content="https://codecraftofficial.com/blog">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CODE CRAFT Blog - Web Development & Programming Insights">
+    <meta name="twitter:description" content="Discover workshop highlights, coding tutorials, and expert insights from CODE CRAFT's training programs.">
+    <meta name="twitter:image" content="../../static/images/codecraft.png">
+    <link rel="canonical" href="https://codecraftofficial.com/blog">
+    <link rel="icon" href="../../static/images/image.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* ===== CODE CRAFT Blog Page Styles (DARK THEME) ===== */
+
+        /* General Page Background */
+        body {
+            background: linear-gradient(135deg, #181f2a 0%, #232b3e 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+            color: var(--text-color, #e6eaf3);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Dark Theme Variables */
+        :root {
+            --background-color: #232b3e;
+            --background-alt: #1a2236;
+            --primary-color: #4f8cff;
+            --secondary-color: #1ecbe1;
+            --text-color: #e6eaf3;
+            --border-color: #2e3952;
+            --shadow-md: 0 4px 24px rgba(0,0,0,0.25);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.35);
+        }
+
+        /* Header */
+        .site-header {
+            background: var(--background-color, #232b3e);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+            padding: 24px 0 12px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            display:flex;
+            justify-content: center;
+        }
+
+        .logo {
+            height: 48px;
+            /* width: 48px; */
+            /* border-radius: 12px; */
+            object-fit: cover;
+            /* background: #181f2a; */
+        }
+
+        .site-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color, #4f8cff);
+            margin: 0;
+        }
+
+        .site-tagline {
+            font-size: 1.1rem;
+            color: #b0b8c9;
+            margin-top: 8px;
+            margin-bottom: 0;
+        }
+
+        /* Navigation */
+        .main-nav {
+            background: var(--background-alt, #1a2236);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+            padding: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            list-style: none;
+            margin: 0;
+            padding: 16px 0;
+            justify-content: center;
+        }
+
+        .nav-link {
+            color: var(--primary-color, #4f8cff);
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: background 0.2s, color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-link.active,
+        .nav-link:hover {
+            background: var(--primary-color, #4f8cff);
+            color: #fff;
+        }
+
+        /* Blog Main Section */
+        .blog-main.section {
+            padding: 48px 0 32px 0;
+            min-height: 70vh;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 36px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color, #4f8cff);
+            margin-bottom: 8px;
+        }
+
+        .section-subtitle {
+            color: #b0b8c9;
+            font-size: 1.1rem;
+            margin-bottom: 0;
+        }
+
+        /* Blog Grid */
+        .blog-grid {
+            display: flex;
+            flex-wrap: nowrap;         /* Prevent wrapping to next line */
+            gap: 32px;
+            justify-content: center;
+            align-items: flex-start;
+            position: relative;
+            overflow-x: hidden;   /* Hide horizontal scroll */
+            padding-bottom: 12px;
+        }
+
+        /* Blog Card Layout */
+        .blog-card {
+            background: var(--background-alt, #1a2236);
+            border-radius: 18px;
+            box-shadow: var(--shadow-md);
+            overflow: visible;
+            transition: box-shadow 0.2s, transform 0.2s, z-index 0.2s, opacity 0.3s, filter 0.3s;
+            width: 100%;
+            min-width: 0;
+            max-width: 340px;
+            flex: 1 1 0;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: var(--shadow-lg);
+            z-index: 2;
+        }
+
+        /* Faded effect for non-active cards */
+        .blog-card.faded {
+            opacity: 0.2;
+            filter: blur(1px);
+            pointer-events: none;
+            transition: opacity 0.3s, filter 0.3s;
+        }
+
+        /* Expanded Card: Show extra content as attached card on the right, cover all width */
+        .blog-card.expanded {
+            z-index: 20;
+            order: -1;
+            width: 340px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            min-height: 260px;
+            /* keep card size same */
+        }
+
+        /* Show attached detail card as overlay */
+        .blog-card.expanded .blog-more-content-attached {
+            display: flex;
+            flex-direction: column;
+            background: var(--background-alt, #1a2236);
+            border-radius: 18px;
+            box-shadow: var(--shadow-lg);
+            position: absolute;
+            top: 0;
+            left: 100%;
+            margin-left: 32px;
+            min-width: 400px;
+            max-width: 600px;
+            min-height: 100%;
+            padding: 32px 28px;
+            border: 1px solid var(--border-color, #2e3952);
+            animation: fadeIn 0.4s;
+            z-index: 30;
+            color: var(--text-color, #e6eaf3);
+        }
+
+        .blog-card .blog-more-content-attached {
+            display: none;
+        }
+
+        .blog-card.expanded .blog-more-content-attached {
+            display: flex;
+        }
+
+        /* Responsive: Stack attached card below on small screens */
+        @media (max-width: 900px) {
+            .blog-card.expanded .blog-more-content-attached {
+                position: static;
+                margin-left: 0;
+                margin-top: 18px;
+                min-width: 0;
+                max-width: 100vw;
+                width: 100%;
+                border-radius: 18px;
+                box-shadow: var(--shadow-md);
+                z-index: 30;
+            }
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background: #232b3e;
+            display: block;
+            border-radius: 18px 18px 0 0;
+        }
+
+        .blog-content {
+            padding: 20px 18px 18px 18px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .blog-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary-color, #4f8cff);
+        }
+
+        .blog-meta {
+            font-size: 0.95rem;
+            color: #8fa2c7;
+            margin-bottom: 10px;
+        }
+
+        .blog-excerpt {
+            font-size: 1rem;
+            color: #b0b8c9;
+            margin-bottom: 18px;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.98rem;
+            color: var(--primary-color, #4f8cff);
+            text-decoration: none;
+            font-weight: 500;
+            border: 1px solid var(--border-color, #2e3952);
+            border-radius: 6px;
+            padding: 6px 12px;
+            background: #232b3e;
+            transition: background 0.2s, color 0.2s, border 0.2s;
+            margin-top: auto;
+        }
+
+        .project-link:hover {
+            background: var(--primary-color, #4f8cff);
+            color: #fff;
+            border-color: var(--primary-color, #4f8cff);
+        }
+
+        .blog-more-content {
+            margin-top: 10px;
+            color: #e6eaf3;
+            font-size: 0.98rem;
+            animation: fadeIn 0.4s;
+        }
+
+        .blog-details-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 18px 0;
+        }
+
+        .blog-details-list li {
+            color: #b0b8c9;
+            font-size: 1rem;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .blog-details-list li i {
+            color: #4f8cff;
+            font-size: 1.1em;
+        }
+
+        .behind-scenes-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 18px 0;
+        }
+
+        .behind-scenes-list li {
+            font-size: 1.05rem;
+            color: #b0b8c9;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .behind-scenes-list .icon {
+            font-size: 1.3em;
+            margin-right: 6px;
+            flex-shrink: 0;
+        }
+
+        .behind-scenes-quote {
+            margin: 0;
+            padding: 16px 22px;
+            background: rgba(79,140,255,0.09);
+            border-left: 4px solid #4f8cff;
+            border-radius: 10px;
+            color: #4f8cff;
+            font-style: italic;
+            font-size: 1.08rem;
+            letter-spacing: 0.01em;
+        }
+
+        .workshops-blog-section {
+            margin: 56px auto 0 auto;
+            max-width: 800px;
+            background: rgba(35,43,62,0.93);
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+            padding: 36px 28px 32px 28px;
+        }
+
+        .workshops-blog-section .section-header {
+            margin-bottom: 18px;
+        }
+
+        .behind-scenes-content p {
+            font-size: 1.08rem;
+            color: #e6eaf3;
+            margin-bottom: 18px;
+        }
+
+        /* Blog Grid Responsive Styles */
+        .blog-grid {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 32px;
+            justify-content: center;
+            align-items: flex-start;
+            position: relative;
+            overflow-x: hidden;
+            padding-bottom: 12px;
+        }
+        .blog-card {
+            background: var(--background-alt, #1a2236);
+            border-radius: 18px;
+            box-shadow: var(--shadow-md);
+            overflow: visible;
+            transition: box-shadow 0.2s, transform 0.2s, z-index 0.2s, opacity 0.3s, filter 0.3s;
+            width: 100%;
+            min-width: 0;
+            max-width: 340px;
+            flex: 1 1 0;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+        }
+        .blog-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: var(--shadow-lg);
+            z-index: 2;
+        }
+        .blog-image img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background: #232b3e;
+            display: block;
+            border-radius: 18px 18px 0 0;
+        }
+        .blog-content {
+            padding: 20px 18px 10px 18px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .blog-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary-color, #4f8cff);
+        }
+        .blog-meta {
+            font-size: 0.95rem;
+            color: #8fa2c7;
+            margin-bottom: 10px;
+        }
+        .blog-excerpt {
+            font-size: 1rem;
+            color: #b0b8c9;
+            margin-bottom: 18px;
+        }
+        .blog-details-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 18px 0;
+        }
+        .blog-details-list li {
+            color: #b0b8c9;
+            font-size: 1rem;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .blog-details-list li i {
+            color: #4f8cff;
+            font-size: 1.1em;
+        }
+        .blog-more-content-attached {
+            display: block !important;
+            margin-top: 10px;
+            color: #e6eaf3;
+            font-size: 0.98rem;
+            animation: fadeIn 0.4s;
+        }
+        @media (max-width: 1100px) {
+            .blog-grid {
+                gap: 18px;
+            }
+            .blog-card {
+                max-width: 280px;
+                padding: 14px;
+            }
+        }
+        @media (max-width: 900px) {
+            .blog-grid {
+                flex-wrap: wrap;
+                gap: 18px;
+                justify-content: center;
+                align-items: stretch;
+            }
+            .blog-card {
+                flex: 1 1 320px;
+                min-width: 220px;
+                max-width: 100%;
+                width: 100%;
+                margin: 0 auto;
+            }
+        }
+        @media (max-width: 700px) {
+            .workshops-blog-section {
+                padding: 12px 2vw 12px 2vw;
+            }
+            .blog-grid {
+                flex-direction: column;
+                gap: 14px;
+                padding-bottom: 0;
+            }
+            .blog-card {
+                max-width: 100%;
+                min-width: 0;
+                width: 100%;
+                padding: 10px 6px;
+            }
+            .blog-image img {
+                height: 120px;
+            }
+            /* Hide Read More button on mobile */
+            .blog-card .project-link.read-more-btn {
+                display: none !important;
+            }
+        }
+
+        /* Ensure main content is above background */
+        body > *:not(.blog-animated-bg) {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Footer (same as index, but dark) */
+        .site-footer {
+            background: var(--background-alt, #1a2236);
+            border-top: 1px solid var(--border-color, #2e3952);
+            padding: 32px 0 16px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-logo img {
+            /* width: 48px; */
+            height: 48px;
+            border-radius: 12px; 
+            object-fit: cover;
+            margin-bottom: 8px;
+            /* background: #181f2a; */
+        }
+
+        .site-footer p {
+            color: #b0b8c9;
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .footer-social-link {
+            color: var(--primary-color, #4f8cff);
+            font-size: 1.5rem;
+            transition: color 0.2s;
+            text-decoration: none;
+        }
+
+        .footer-social-link:hover {
+            color: #fff;
+        }
+
+        /* Animated Background */
+        .blog-animated-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .bg-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.18;
+            filter: blur(2px);
+            animation-timing-function: ease-in-out;
+        }
+
+        .shape1 {
+            width: 340px; height: 340px;
+            background: linear-gradient(135deg, #4f8cff 60%, #1ecbe1 100%);
+            top: -80px; left: -80px;
+            animation: float1 6s cubic-bezier(.4,1.6,.6,1) infinite alternate;
+        }
+        .shape2 {
+            width: 220px; height: 220px;
+            background: linear-gradient(135deg, #1ecbe1 60%, #4f8cff 100%);
+            bottom: 10%; right: 8%;
+            animation: float2 7s cubic-bezier(.4,1.6,.6,1) infinite alternate;
+        }
+        .shape3 {
+            width: 160px; height: 160px;
+            background: linear-gradient(135deg, #fff 0%, #4f8cff 100%);
+            top: 10%; right: 50px;
+            animation: float3 8s cubic-bezier(.4,1.6,.6,1) infinite alternate;
+            opacity: 0.10;
+        }
+        .shape4 {
+            width: 120px; height: 120px;
+            background: linear-gradient(135deg, #1ecbe1 0%, #fff 100%);
+            bottom: 18%; left: 12%;
+            animation: float4 9s cubic-bezier(.4,1.6,.6,1) infinite alternate;
+            opacity: 0.13;
+        }
+        .shape5 {
+            width: 180px; height: 180px;
+            background: linear-gradient(135deg, #ffb347 0%, #ff5e62 100%);
+            top: 60%; left: 55%;
+            opacity: 0.14;
+            filter: blur(2px);
+            position: absolute;
+            border-radius: 50%;
+            animation: float5 10s cubic-bezier(.4,1.6,.6,1) infinite alternate;
+            z-index: 0;
+        }
+
+        @keyframes float1 {
+            0% { transform: translateY(0) scale(1);}
+            50% { transform: translateY(60px) scale(1.08);}
+            100% { transform: translateY(0) scale(1);}
+        }
+        @keyframes float2 {
+            0% { transform: translateY(0) scale(1);}
+            50% { transform: translateY(-40px) scale(1.12);}
+            100% { transform: translateY(0) scale(1);}
+        }
+        @keyframes float3 {
+            0% { transform: translateY(0) scale(1);}
+            50% { transform: translateY(30px) scale(1.05);}
+            100% { transform: translateY(0) scale(1);}
+        }
+        @keyframes float4 {
+            0% { transform: translateY(0) scale(1);}
+            50% { transform: translateY(-30px) scale(1.15);}
+            100% { transform: translateY(0) scale(1);}
+        }
+        @keyframes float5 {
+            0% { transform: translateY(0) scale(1);}
+            50% { transform: translateY(-50px) scale(1.09);}
+            100% { transform: translateY(0) scale(1);}
+        }
+
+        /* Always show extra content on mobile, hide Read More button */
+        @media (max-width: 700px) {
+            .blog-grid {
+                flex-direction: column;
+                gap: 14px;
+                padding-bottom: 0;
+            }
+            .blog-card {
+                max-width: 100%;
+                min-width: 0;
+                width: 100%;
+                padding: 10px 6px;
+            }
+            .blog-image img {
+                height: 120px;
+            }
+            .blog-card .blog-more-content-attached {
+                display: block !important;
+                margin-top: 10px;
+                color: #e6eaf3;
+                font-size: 0.98rem;
+                animation: fadeIn 0.4s;
+            }
+            .blog-card .project-link.read-more-btn {
+                display: none !important;
+            }
+        }
+        /* On desktop, hide extra content by default, show only when expanded */
+        @media (min-width: 701px) {
+            .blog-card .blog-more-content-attached {
+                display: none;
+            }
+            .blog-card.expanded .blog-more-content-attached {
+                display: flex;
+                flex-direction: column;
+            }
+            .blog-card .project-link.read-more-btn {
+                display: inline-flex;
+            }
+        }
+
+        /* Section 3: Meet the Team – The Minds Behind Code Craft */
+        .team-section {
+            margin: 56px auto 0 auto;
+            max-width: 900px;
+            background: rgba(35,43,62,0.93);
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+            padding: 36px 28px 32px 28px;
+        }
+        .team-section .section-header {
+            margin-bottom: 28px;
+        }
+        .team-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            justify-content: center;
+        }
+        .team-card {
+            background: #1a2236;
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.13);
+            padding: 24px 20px 18px 20px;
+            max-width: 320px;
+            min-width: 220px;
+            flex: 1 1 260px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            color: #e6eaf3;
+            position: relative;
+        }
+        .team-icon {
+            font-size: 2.1rem;
+            margin-bottom: 8px;
+        }
+        .team-name {
+            font-size: 1.18rem;
+            font-weight: 700;
+            color: #4f8cff;
+            margin: 0 0 2px 0;
+        }
+        .team-role {
+            font-size: 1rem;
+            color: #8fa2c7;
+            margin-bottom: 10px;
+        }
+        .team-details {
+            list-style: disc inside;
+            padding-left: 0;
+            margin: 0 0 10px 0;
+            color: #b0b8c9;
+            font-size: 0.98rem;
+        }
+        .team-quote {
+            margin: 0;
+            padding: 10px 0 0 0;
+            color: #4f8cff;
+            font-style: italic;
+            font-size: 1.01rem;
+            border-left: 3px solid #4f8cff;
+            padding-left: 12px;
+            background: none;
+        }
+        @media (max-width: 900px) {
+            .team-grid {
+                gap: 18px;
+            }
+            .team-card {
+                max-width: 100%;
+                min-width: 0;
+                flex: 1 1 100%;
+            }
+        }
+        @media (max-width: 700px) {
+            .team-section {
+                padding: 18px 2vw 18px 2vw;
+            }
+            .team-grid {
+                flex-direction: column;
+                gap: 14px;
+            }
+            .team-card {
+                padding: 16px 8px 12px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="blog-animated-bg">
+        <div class="bg-shape shape1"></div>
+        <div class="bg-shape shape2"></div>
+        <div class="bg-shape shape3"></div>
+        <div class="bg-shape shape4"></div>
+        <div class="bg-shape shape5"></div>
+    </div>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo-container">
+                <img src="../../static/images/image.png" alt="CODE CRAFT Logo" class="logo"  height="48" fetchpriority="high" decoding="sync">
+                <h1 class="site-title">CODE CRAFT</h1>
+            </div>
+            <p class="site-tagline">We Believe to Develop a Better Future.</p>
+        </div>
+    </header>
+
+    <!-- Blog Main Content -->
+    <main class="blog-main section">
+        <div class="container">
+            <header class="section-header">
+                <h2 class="section-title">Get Exclusive Access to Creativity, Code & Inspiration</h2>
+                <hr style="border: none; border-top: 2px solid #2e3952; margin: 24px 0;">
+                <p class="section-subtitle">Discover fresh ideas, coding secrets, and the latest from our passionate team</p>
+            </header>
+
+            <!-- Section 1: Workshops -->
+            <section class="workshops-blog-section">
+                <header class="section-header">
+                    <h2 class="section-title"><i class="fas fa-laptop-code"></i> Recent Workshops Highlights</h2>
+                    <hr style="border: none; border-top: 2px solid #2e3952; margin: 24px 0;">
+                    <p class="section-subtitle">Explore our major workshops and their impact</p>
+                </header>
+                <div class="blog-grid">
+                    <!-- Blog Post 1 -->
+                    <article class="blog-card" id="blog-post-1">
+                        <div class="blog-image">
+                            <img src="../../static/images/workshop1.png" alt="Web Development workshop at Rozario High School" loading="lazy" decoding="async" width="400" height="300">
+                        </div>
+                        <div class="blog-content">
+                            <h3 class="blog-title">Workshop 1: Web Development Fundamentals – Rozario High School</h3>
+                            <p class="blog-meta">By <strong>Team CODE CRAFT</strong> | March 2025</p>
+                            <ul class="blog-details-list">
+                                <li><i class="fas fa-map-marker-alt"></i> Rozario High School</li>
+                                <li><i class="fas fa-calendar-alt"></i> 4-Day Intensive</li>
+                                <li><i class="fas fa-laptop-code"></i> SDLC, HTML, CSS, Personality Development</li>
+                            </ul>
+                            <div class="blog-more-content-attached">
+                                <p>
+                                    Code Craft conducted a 4-day intensive workshop at Rozario High School, focused on introducing students to the world of web development. Each day spanned 5 to 6 hours of hands-on learning. We introduced key concepts such as SDLC (Software Development Life Cycle), HTML, CSS, and the basics of webpage styling.
+                                </p>
+                                <p>
+                                    Alongside technical education, students were given a brief introduction to Python and engaged in sessions on personality development and critical thinking. Interactive activities, online quizzes, and a final certification helped enhance learning. It wasn't just about coding — it was about confidence-building and holistic growth.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Blog Post 2 -->
+                    <article class="blog-card" id="blog-post-2">
+                        <div class="blog-image">
+                            <img src="../../static/images/workshop2.png" alt="Advanced coding session at Om Computer Classes" loading="lazy" decoding="async" width="400" height="300">
+                        </div>
+                        <div class="blog-content">
+                            <h3 class="blog-title">Workshop 2: Introduction to Web Technologies – Om Computer Classes</h3>
+                            <p class="blog-meta">By <strong>Team CODE CRAFT</strong> | April 2025</p>
+                            <ul class="blog-details-list">
+                                <li><i class="fas fa-map-marker-alt"></i> Om Computer Institute</li>
+                                <li><i class="fas fa-calendar-alt"></i> 7-Day Comprehensive</li>
+                                <li><i class="fas fa-laptop-code"></i> HTML, C++, Python Basics</li>
+                            </ul>
+                            <div class="blog-more-content-attached">
+                                <p>
+                                Our 7-day workshop at Om Computer Institute was designed to give students a solid foundation in web development and programming. Each day included a 2-hour session conducted in two shifts to accommodate more learners.
+                                </p>
+                                <p>
+                                    Students explored the basics of HTML, and got hands-on with simple C++ and Python programs. The workshop helped them understand how software is developed, and also gave them their first taste of programming logic and structure. It was the perfect blend of theory and practice, made easy for beginners.
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Blog Post 3 -->
+                    <article class="blog-card" id="blog-post-3">
+                        <div class="blog-image">
+                            <img src="../../static/images/workshop3.png" alt="Web Development sessions at RK Classes" loading="lazy" decoding="async" width="400" height="300">
+                        </div>
+                        <div class="blog-content">
+                            <h3 class="blog-title">Workshop 3: Hello World!!! – R.K. Classes</h3>
+                            <p class="blog-meta">By <strong>Team CODE CRAFT</strong> | April - May 2025</p>
+                            <ul class="blog-details-list">
+                                <li><i class="fas fa-map-marker-alt"></i> R.K. Classes</li>
+                                <li><i class="fas fa-calendar-alt"></i> Weekly Sessions for 2 Months</li>
+                                <li><i class="fas fa-book"></i> Web Design, Programming, Graphics, Networking Basics</li>
+                            </ul>
+                            <div class="blog-more-content-attached">
+                                <p>
+                                    "Hello World!!!" – the iconic first step for every programmer — became the title and spirit of our long-term workshop at R.K. Classes. For 2 months, we conducted weekly sessions that introduced students to HTML, CSS, and basic programming languages.
+                                </p>
+                                <p>
+                                    We also touched on software concepts, graphic designing, and networking fundamentals, offering students a well-rounded tech foundation. To make learning fun and impactful, we incorporated games and memory-based activities that enhanced critical thinking and retention power. A perfect mix of learning and fun!
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            <!-- Section 2: Behind the Scenes -->
+            <section class="workshops-blog-section">
+                <header class="section-header">
+                    <h2 class="section-title"><i class="fas fa-lightbulb"></i> Behind the Scenes – How We Plan a Workshop</h2>
+                    <hr style="border: none; border-top: 2px solid #2e3952; margin: 24px 0;">
+                    <p class="section-subtitle">A look at our process and teamwork</p>
+                </header>
+                <div class="behind-scenes-content">
+                    <p>
+                        At Code Craft, every workshop starts with one thing: <strong>a spark of purpose</strong>. Whether it's introducing kids to coding or sharpening someone's logic-building skills, we plan with a mission in mind.
+                    </p>
+                    <table class="behind-scenes-list">
+                        <tr>
+                            <td><span class="icon"><i class="fas fa-search"></i></span></td>
+                            <td><strong>Topic Research:</strong></td>
+                            <td> We brainstorm topics that are relevant, exciting, and beginner-friendly.</td>
+                        </tr> 
+                        <tr>
+                            <td><span class="icon"><i class="fas fa-brain"></i></span></td>
+                            <td> <strong>Content Creation:</strong></td>
+                            <td>From presentations to coding exercises, our trainers design material that blends theory with practice.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="icon"><i class="fas fa-users"></i></span></td>
+                            <td><strong>Role Division:</strong></td>
+                            <td>Every team member has a part to play – trainers, coordinators, designers, content creators, and technical support.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="icon"><i class="fas fa-tools"></i></span></td>
+                            <td><strong>Tool Time:</strong></td>
+                            <td>We use tools like Canva for graphics, PowerPoint for slides, Git for version control, and lots of custom coding examples.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="icon"><i class="fas fa-clipboard-check"></i></span></td>
+                            <td><strong>Dry Run:</strong></td>
+                            <td>Before every workshop, we do a full internal trial – just to make sure things run smooth.</td>
+                        </tr>
+                    </table>
+                    <blockquote class="behind-scenes-quote">
+                        "Planning a workshop is like crafting a mini tech festival – fun, structured, and full of learning."
+                    </blockquote>
+                </div>
+            </section>
+            <!-- Section 3: Meet the Team – The Minds Behind Code Craft -->
+            <section class="team-section">
+                <header class="section-header">
+                    <h2 class="section-title"><i class="fas fa-users"></i> Meet the Team – The Minds Behind Code Craft</h2>
+                    <hr style="border: none; border-top: 2px solid #2e3952; margin: 24px 0;">
+                    <p class="section-subtitle">Behind Code Craft is a group of passionate, skilled, and driven individuals who bring each session to life.</p>
+                </header>
+                <div class="team-grid">
+                    <!-- Sneha Gond -->
+                    <div class="team-card">
+                        <div class="team-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                        <div class="team-info">
+                            <h3 class="team-name">Sneha Gond</h3>
+                            <p class="team-role">Co-Founder | Lead Trainer | Data Analyst</p>
+                            <ul class="team-details">
+                                <li>4+ years of experience in web development</li>
+                                <li>Expert in Python, Java, and Data Analytics using Excel & TensorFlow</li>
+                                <li>Leads sessions, designs curriculum, and manages practical delivery</li>
+                            </ul>
+                            <blockquote class="team-quote">"Tech is power. Teaching tech is empowerment."</blockquote>
+                        </div>
+                    </div>
+                    <!-- Aryan Maurya -->
+                    <div class="team-card">
+                        <div class="team-icon"><i class="fas fa-paint-brush"></i></div>
+                        <div class="team-info">
+                            <h3 class="team-name">Aryan Maurya</h3>
+                            <p class="team-role">Co-Founder | Trainer | Designer</p>
+                            <ul class="team-details">
+                                <li>Specializes in Ethical Hacking, Graphic Designing & Software Tools</li>
+                                <li>Designs all our brochures, social media content & workshop creatives</li>
+                                <li>Skilled in Power BI and exploring Artificial Intelligence</li>
+                            </ul>
+                            <blockquote class="team-quote">"Creativity with code is limitless."</blockquote>
+                        </div>
+                    </div>
+                    <!-- Rahul Rai -->
+                    <div class="team-card">
+                        <div class="team-icon"><i class="fas fa-user-cog"></i></div>
+                        <div class="team-info">
+                            <h3 class="team-name">Rahul Rai</h3>
+                            <p class="team-role">Coordinator | Developer</p>
+                            <ul class="team-details">
+                                <li>Coordinates with schools, students, and institutions</li>
+                                <li>Skilled in Web Development, WordPress, WooCommerce, Python & Java</li>
+                                <li>Strong leadership & communication abilities</li>
+                            </ul>
+                            <blockquote class="team-quote">"Connecting people to learning – that's real progress."</blockquote>
+                        </div>
+                    </div>
+                    <!-- Rajni Gupta -->
+                    <div class="team-card">
+                        <div class="team-icon"><i class="fas fa-book"></i></div>
+                        <div class="team-info">
+                            <h3 class="team-name">Rajni Gupta</h3>
+                            <p class="team-role">Content Creator | Programming Mentor</p>
+                            <ul class="team-details">
+                                <li>Stronghold in C++ and logic-based programming</li>
+                                <li>Handles all our test papers, practice materials & evaluations</li>
+                            </ul>
+                            <blockquote class="team-quote">"Good code comes from great logic."</blockquote>
+                        </div>
+                    </div>
+                    <!-- Rohit Khetan -->
+                    <div class="team-card">
+                        <div class="team-icon"><i class="fas fa-database"></i></div>
+                        <div class="team-info">
+                            <h3 class="team-name">Rohit Khetan</h3>
+                            <p class="team-role">DBMS Expert | Content Planner</p>
+                            <ul class="team-details">
+                                <li>Expert in databases and data management</li>
+                                <li>Plans what topics to teach, in what order, and during which sessions</li>
+                            </ul>
+                            <blockquote class="team-quote">"Structure in content is the first step to clarity in learning."</blockquote>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <img src="../../static/images/image.png" alt="CODE CRAFT Logo">
+            </div>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/codecraftofficial/" target="_blank" aria-label="Instagram" class="footer-social-link"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:codecraftoffice01@gmail.com" target="_blank" aria-label="Email" class="footer-social-link"><i class="fas fa-envelope"></i> </a>
+                <a href="https://youtube.com/@codecraft_offical001?si=N8MZFPzA0-038wJS" target="_blank" aria-label="Youtube" class="footer-social-link"><i class="fab fa-youtube"></i> </a>
+            </div>
+            <p>&copy; 2025 CODE CRAFT. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

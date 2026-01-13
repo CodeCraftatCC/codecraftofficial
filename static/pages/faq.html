@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FAQ | CODE CRAFT</title>
+    <meta name="description" content="Find answers to frequently asked questions about CODE CRAFT's programming courses, workshops, and training programs. Get information about our teaching methods, course structure, and more.">
+    <meta name="keywords" content="CODE CRAFT FAQ, programming course questions, workshop information, coding training FAQ, web development training questions">
+    <meta name="author" content="CODE CRAFT">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="FAQ - CODE CRAFT Programming & Web Development Training">
+    <meta property="og:description" content="Get answers to common questions about CODE CRAFT's programming courses, workshops, and training programs. Learn about our teaching methods and course structure.">
+    <meta property="og:image" content="../../static/images/codecraft.png">
+    <meta property="og:url" content="https://codecraftofficial.com/faq">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FAQ - CODE CRAFT Programming & Web Development Training">
+    <meta name="twitter:description" content="Get answers to common questions about CODE CRAFT's programming courses, workshops, and training programs. Learn about our teaching methods and course structure.">
+    <meta name="twitter:image" content="../../static/images/codecraft.png">
+    <link rel="canonical" href="https://codecraftofficial.com/faq">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="../../static/images/image.png" type="image/x-icon">
+    <link rel="stylesheet" href="../pages/blog.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #181f2a 0%, #232b3e 100%);
+            color: #e6eaf3;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+        }
+        /* Header */
+        .site-header {
+            background: var(--background-color, #232b3e);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+            padding: 24px 0 12px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            display:flex;
+            justify-content: center;
+        }
+
+        .logo {
+            height: 48px;
+            /* width: 48px; */
+            /* border-radius: 12px; */
+            object-fit: cover;
+            /* background: #181f2a; */
+        }
+
+        .site-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color, #4f8cff);
+            margin: 0;
+        }
+
+        .site-tagline {
+            font-size: 1.1rem;
+            color: #b0b8c9;
+            margin-top: 8px;
+            margin-bottom: 0;
+        }
+        
+        .faq-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .faq-animated-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        /* Star, Diamond, Wave (already present) */
+        .faq-bg-star {
+            position: absolute;
+            width: 90px; height: 90px;
+            top: 12%; left: 10%;
+            opacity: 0.18;
+            filter: blur(1px);
+            animation: faqstar 9s infinite alternate;
+            z-index: 0;
+        }
+        .faq-bg-star svg {
+            width: 100%; height: 100%;
+            display: block;
+        }
+        .faq-bg-diamond {
+            position: absolute;
+            width: 100px; height: 100px;
+            bottom: 15%; right: 12%;
+            opacity: 0.16;
+            filter: blur(1.5px);
+            animation: faqdiamond 11s infinite alternate;
+            z-index: 0;
+        }
+        .faq-bg-diamond svg {
+            width: 100%; height: 100%;
+            display: block;
+        }
+        .faq-bg-wave {
+            position: absolute;
+            width: 220px; height: 60px;
+            top: 28%; right: 7%;
+            opacity: 0.13;
+            filter: blur(1.5px);
+            animation: faqwave 13s infinite alternate;
+            z-index: 0;
+        }
+        .faq-bg-wave svg {
+            width: 100%; height: 100%;
+            display: block;
+        }
+        .faq-bg-question {
+            position: absolute;
+            font-size: 5rem;
+            color: #4f8cff;
+            left: 50%; top: 80%;
+            opacity: 0.13;
+            transform: translateX(-50%);
+            animation: faqquestion 8s infinite alternate;
+            z-index: 0;
+            filter: blur(1px);
+            pointer-events: none;
+        }
+        /* --- Bubble shapes --- */
+        .faq-bg-bubble {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(4px);
+            opacity: 0.13;
+            animation: faqbubble 12s infinite alternate;
+            z-index: 0;
+        }
+        .bubble1 {
+            width: 180px; height: 180px;
+            background: linear-gradient(135deg, #4f8cff 60%, #1ecbe1 100%);
+            top: 7%; left: 5%;
+            animation-delay: 0s;
+        }
+        .bubble2 {
+            width: 120px; height: 120px;
+            background: linear-gradient(135deg, #ffb347 0%, #ff5e62 100%);
+            top: 18%; right: 8%;
+            animation-delay: 2s;
+        }
+        .bubble3 {
+            width: 90px; height: 90px;
+            background: linear-gradient(135deg, #fff 0%, #4f8cff 100%);
+            top: 55%; left: 12%;
+            opacity: 0.10;
+            animation-delay: 4s;
+        }
+        .bubble4 {
+            width: 220px; height: 220px;
+            background: linear-gradient(135deg, #1ecbe1 0%, #4f8cff 100%);
+            bottom: 7%; left: 60%;
+            opacity: 0.09;
+            animation-delay: 1s;
+        }
+        .bubble5 {
+            width: 300px; height: 300px;
+            background: linear-gradient(135deg, #ff5e62 0%, #ffb347 100%);
+            top: 38%; left: 62%;
+            opacity: 0.15;
+            animation-delay: 3s;
+        }
+        .bubble6 {
+            width: 400px; height: 400px;
+            background: linear-gradient(135deg, #1ecbe1 0%, #fff 100%);
+            bottom: -10%; right: -10%;
+            opacity: 0.11;
+            animation-delay: 5s;
+        }
+        .bubble7 {
+            width: 110px; height: 110px;
+            background: linear-gradient(135deg, #4f8cff 0%, #fff 100%);
+            top: 68%; right: 14%;
+            opacity: 0.10;
+            animation-delay: 6s;
+        }
+        .bubble8 {
+            width: 200px; height: 200px;
+            background: linear-gradient(135deg, #ffb347 0%, #ff5e62 100%);
+            bottom: 24%; left: 10%;
+            opacity: 0.12;
+            animation-delay: 7s;
+        }
+        @keyframes faqstar {
+            0% { transform: scale(1) rotate(0deg);}
+            50% { transform: scale(1.15) rotate(18deg);}
+            100% { transform: scale(1) rotate(0deg);}
+        }
+        @keyframes faqdiamond {
+            0% { transform: scale(1) rotate(0deg);}
+            50% { transform: scale(1.1) rotate(24deg);}
+            100% { transform: scale(1) rotate(0deg);}
+        }
+        @keyframes faqwave {
+            0% { transform: translateY(0);}
+            50% { transform: translateY(30px);}
+            100% { transform: translateY(0);}
+        }
+        @keyframes faqquestion {
+            0% { transform: translateX(-50%) scale(1);}
+            50% { transform: translateX(-50%) scale(1.18);}
+            100% { transform: translateX(-50%) scale(1);}
+        }
+        @keyframes faqbubble {
+            0% { transform: scale(1) translateY(0);}
+            50% { transform: scale(1.12) translateY(30px);}
+            100% { transform: scale(1) translateY(0);}
+        }
+        .faq-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: rgba(35,43,62,0.93);
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+            padding: 40px 32px 32px 32px;
+            position: relative;
+            z-index: 1;
+            backdrop-filter: blur(2px);
+            width: 100%;
+        }
+        .faq-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #4f8cff;
+            margin-bottom: 28px;
+            letter-spacing: 1px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+        .faq-title .faq-icon {
+            font-size: 2.1rem;
+            color: #4f8cff;
+            filter: drop-shadow(0 2px 8px #1ecbe1aa);
+        }
+        .faq-list {
+            list-style: none;
+            padding: 0;
+        }
+        .faq-item {
+            margin-bottom: 24px;
+            border-radius: 12px;
+            background: rgba(40,50,70,0.7);
+            box-shadow: 0 2px 12px 0 rgba(30,203,225,0.04);
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+            border-left: 4px solid #4f8cff;
+            position: relative;
+        }
+        .faq-q {
+            font-weight: 600;
+            color: #1ecbe1;
+            font-size: 1.13rem;
+            padding: 18px 24px 8px 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .faq-q::before {
+            content: "❓";
+            font-size: 1.2rem;
+            margin-right: 6px;
+            opacity: 0.7;
+        }
+        .faq-a {
+            margin: 0 24px 18px 48px;
+            color: #e6eaf3;
+            font-size: 1.04rem;
+            line-height: 1.7;
+            background: rgba(35,43,62,0.18);
+            border-radius: 8px;
+            padding: 12px 16px;
+            box-shadow: 0 1px 6px 0 rgba(79,140,255,0.04);
+            animation: fadeInFaq 0.8s;
+            display: none; /* Hide by default for toggle */
+            position: relative;
+        }
+        .faq-item.open .faq-a {
+            display: block;
+        }
+        @keyframes fadeInFaq {
+            from { opacity: 0; transform: translateY(20px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .faq-contact {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 1.08rem;
+        }
+        .faq-contact a {
+            color: #4f8cff;
+            text-decoration: underline;
+        }
+        @media (max-width: 600px) {
+            .faq-container { padding: 18px 6px; margin: 18px 2vw; }
+            .faq-title { font-size: 1.3rem; }
+            .faq-q { padding: 14px 10px 6px 10px; }
+            .faq-a { margin: 0 10px 12px 24px; }
+            .faq-a::before { left: -20px; top: 8px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo-container">
+                <img src="../../static/images/image.png" alt="CODE CRAFT Logo" class="logo"  height="48" fetchpriority="high" decoding="sync">
+                <h1 class="site-title">CODE CRAFT</h1>
+            </div>
+            <p class="site-tagline">We Believe to Develop a Better Future.</p>
+        </div>
+    </header>
+    <section class="faq-section">
+        <!-- Animated Background inside section -->
+        <div class="faq-animated-bg">
+            <!-- Bubbles only -->
+            <div class="faq-bg-bubble bubble1"></div>
+            <div class="faq-bg-bubble bubble2"></div>
+            <div class="faq-bg-bubble bubble3"></div>
+            <div class="faq-bg-bubble bubble4"></div>
+            <div class="faq-bg-bubble bubble5"></div>
+            <div class="faq-bg-bubble bubble6"></div>
+            <div class="faq-bg-bubble bubble7"></div>
+            <div class="faq-bg-bubble bubble8"></div>
+        </div>
+        <!-- FAQ Content (z-index: 1) -->
+        <div class="faq-container">
+            <div class="faq-title">
+                <span class="faq-icon">💬</span>
+                Frequently Asked Questions (FAQ's)
+            </div>
+            <ul class="faq-list">
+                <li class="faq-item">
+                    <div class="faq-q">What is Code Craft?</div>
+                    <div class="faq-a">Code Craft is a student-led initiative dedicated to teach Coding, Web Development, and Digital Skills through interactive Workshops, Online Classes, and hands-on activities for learners of all levels.</div>
+                </li>
+                <li class="faq-item">
+                    <div class="faq-q">What is the organization's mission?</div>
+                    <div class="faq-a">Our mission is to empower students with practical coding skills, foster creativity, and build a strong foundation for future careers in technology.</div>
+                </li>
+                <li class="faq-item">
+                    <div class="faq-q">What kind of courses do you offer?</div>
+                    <div class="faq-a">We offer beginner to intermediate courses in Web Development (HTML, CSS, JavaScript), Programming Fundamentals, and Personal Development Skills. Special workshops on trending tech topics are also conducted.</div>
+                </li>
+                <li class="faq-item">
+                    <div class="faq-q">How much do your courses cost?</div>
+                    <div class="faq-a">Many of our workshops and online sessions are  offered at a nominal fee to make learning accessible for everyone. Please contact us for details on specific courses.</div>
+                </li>
+                <li class="faq-item">
+                    <div class="faq-q">What kind of workshops have you conducted?</div>
+                    <div class="faq-a">We have conducted workshops at schools and institutes like Om Computer Classes and R.K. Classes, covering topics such as Web Development, Programming Basics, and Project-based learning.</div>
+                </li>
+                <li class="faq-item">
+                    <div class="faq-q">How long do your workshops last?</div>
+                    <div class="faq-a">Workshops typically range for a week, depending on the topic and depth. Some programs run weekly for several months.</div>
+                </li>
+                <li class="faq-item">
+                    <div class="faq-q">What kind of support do you offer?</div>
+                    <div class="faq-a">We provide live doubt-solving sessions, mentorship, project guidance, and life-long support through our online community and instructors.</div>
+                </li>
+                <li class="faq-item">
+                    <div class="faq-q">Do you offer certification?</div>
+                    <div class="faq-a">Yes, participants receive certificates upon successful completion of workshops and active participation in our programs.</div>
+                </li>
+                <li class="faq-item">
+                    <div class="faq-q">Who can attend your workshops and classes?</div>
+                    <div class="faq-a">Anyone interested in learning coding or digital skills can join—students, beginners, and anyone who is switching career into tech.</div>
+                </li>
+                <li class="faq-item">
+                    <div class="faq-q">Can I get career counseling?</div>
+                    <div class="faq-a">Yes, we offer basic career guidance and mentorship to help you choose the right path in technology and programming.</div>
+                </li>
+                <li class="faq-item">
+                    <div class="faq-q">Are the classes online or offline?</div>
+                    <div class="faq-a">We offer both online and offline classes, depending on the program and location. Most workshops are conducted in-person, while regular sessions are often online.</div>
+                </li>
+                <!-- <li class="faq-item">
+                    <div class="faq-q">What is the class schedule?</div>
+                    <div class="faq-a">Schedules vary by course and workshop. Online classes are usually held in the evenings or weekends. Please check our announcements or contact us for the latest schedule.</div>
+                </li> -->
+                <li class="faq-item">
+                    <div class="faq-q">Will I get notes and recordings?</div>
+                    <div class="faq-a">Yes, we provide notes, resources, and sometimes session recordings to help you revise and practice at your own pace.</div>
+                </li>
+                <li class="faq-item">
+                    <div class="faq-q">Is this beginner-friendly?</div>
+                    <div class="faq-a">Absolutely! Our courses and workshops are designed for beginners, with step-by-step guidance and plenty of practice opportunities.</div>
+                </li>
+                <li class="faq-item">
+                    <div class="faq-q">What do I need to attend?</div>
+                    <div class="faq-a">You need a computer or smartphone with internet access. For offline workshops, just bring your enthusiasm—resources are provided!</div>
+                </li>
+                <li class="faq-item">
+                    <div class="faq-q">How do I contact the team?</div>
+                    <div class="faq-a">You can reach us via email at <a href="mailto:codecraftoffice01@gmail.com">codecraftoffice01@gmail.com</a>, Instagram <a href="https://www.instagram.com/codecraftofficial/" target="_blank">@codecraftofficial</a>, or through the contact form on our website.</div>
+                </li>
+                <li class="faq-item">
+                    <div class="faq-q">Where can I see student work and activities?</div>
+                    <div class="faq-a">Visit our <a href="../../index.html#student-work">Best Student Work</a> and <a href="../../index.html#activities">Activities</a> sections to see projects and snapshots from our events.</div>
+                </li>
+            </ul>
+            <div class="faq-contact">
+                Still have questions? <a href="../../index.html#contact">Contact us here</a>.
+            </div>
+        </div>
+    </section>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <!-- <div class="footer-image">
+                <img src="../../static/images/footer-bg.png" alt="Footer Background" loading="lazy" decoding="async" width="1200" height="300">
+            </div> -->
+            <div class="footer-logo">
+                <img src="../../static/images/image.png" alt="CodeCraft Logo">
+                
+            </div>
+            <div class="footer-links">
+                <!-- <a href="../../index.html" target="_blank" title="Home">
+                    <i class="fas fa-home"></i> 
+                </a>
+                <a href="../../index.html#about" target="_blank" title="About">
+                    <i class="fas fa-info-circle"></i> 
+                </a> -->
+                <a href="../../index.html#contact" target="_blank" title="Contact">
+                    <i class="fas fa-phone"></i>
+                </a>
+                <a href="mailto:codecraftoffice01@gmail.com" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://www.instagram.com/codecraftofficial/" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i> 
+                </a>
+                <a href="https://youtube.com/@codecraft_offical001?si=N8MZFPzA0-038wJS" target="_blank" aria-label="Youtube" class="footer-social-link" title="YouTube">
+                    <i class="fab fa-youtube"></i> 
+                </a>
+            </div>
+            <div class="footer-copy">
+                &copy; 2025 CodeCraft. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <!-- Font Awesome CDN for icons (add in <head> if not already present) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+    .site-footer {
+        width: 100%;
+        background: linear-gradient(90deg, #181f2a 60%, #232b3e 100%);
+        color: #e6eaf3;
+        padding: 36px 0 18px 0;
+        text-align: center;
+        font-size: 1rem;
+        margin-top: 48px;
+        border-top: 2px solid #2a3550;
+        z-index: 2;
+        position: relative;
+        box-shadow: 0 -2px 24px 0 rgba(30,203,225,0.06);
+        letter-spacing: 0.01em;
+    }
+    .footer-content {
+        max-width: 950px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+    }
+    .footer-logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 6px;
+    }
+    .footer-logo img {
+        height: 50px;
+        border-radius: 12px;
+        object-fit: cover;
+        /* background: #232b3e; */
+        /* box-shadow: 0 2px 12px 0 #1ecbe133; */
+    }
+    .footer-logo span {
+        font-weight: 700;
+        font-size: 1.25rem;
+        color: #4f8cff;
+        letter-spacing: 1px;
+        text-shadow: 0 2px 8px #1ecbe1aa;
+    }
+    .footer-links {
+        margin-bottom: 8px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        justify-content: center;
+    }
+    .footer-links a {
+        color: #4f8cff;
+        margin: 0 4px;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1.13em;
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 7px 14px;
+        border-radius: 6px;
+        transition: 
+            color 0.2s,
+            background 0.2s,
+            box-shadow 0.2s;
+        background: rgba(35,43,62,0.22);
+    }
+    .footer-links a:hover {
+        color: #fff;
+        background: linear-gradient(90deg, #4f8cff 60%, #1ecbe1 100%);
+        box-shadow: 0 2px 12px 0 #1ecbe144;
+        text-decoration: none;
+    }
+    .footer-links i {
+        font-size: 1.18em;
+        vertical-align: middle;
+        color: #1ecbe1;
+        transition: color 0.2s;
+    }
+    .footer-links a:hover i {
+        color: #fff;
+    }
+    .footer-copy {
+        font-size: 0.97rem;
+        opacity: 0.7;
+        margin-top: 8px;
+        letter-spacing: 0.03em;
+    }
+    @media (max-width: 600px) {
+        .footer-content { padding: 0 8px; gap: 12px; }
+        .footer-links { gap: 8px; }
+        .footer-links a { font-size: 1em; padding: 6px 8px; }
+        .footer-logo img { height: 28px; }
+        .footer-logo span { font-size: 1rem; }
+    }
+    </style>
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Hide all answers initially
+    document.querySelectorAll('.faq-a').forEach(function(a) {
+        a.style.display = "none";
+    });
+    // Toggle on question click
+    document.querySelectorAll('.faq-q').forEach(function(q) {
+        q.addEventListener('click', function() {
+            var item = q.closest('.faq-item');
+            var answer = q.nextElementSibling;
+            if (item.classList.contains('open')) {
+                answer.style.display = "none";
+                item.classList.remove('open');
+            } else {
+                // Close others
+                document.querySelectorAll('.faq-item.open').forEach(function(openItem) {
+                    openItem.classList.remove('open');
+                    openItem.querySelector('.faq-a').style.display = "none";
+                });
+                answer.style.display = "block";
+                item.classList.add('open');
+            }
+        });
+    });
+});
+</script>
+</body>
+</html>

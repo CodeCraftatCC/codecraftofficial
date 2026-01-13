@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Join Us | CODE CRAFT</title>
+    <link rel="icon" href="../../static/images/image.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #181f2a 0%, #232b3e 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+            color: #e6eaf3;
+            margin: 0;
+            padding: 0;
+        }
+        /* Header and Footer CSS exactly like blog.html */
+        .site-header {
+            background: var(--background-color, #232b3e);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+            padding: 24px 0 12px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            display:flex;
+            justify-content: center;
+        }
+
+        .logo {
+            height: 48px;
+            /* width: 48px; */
+            /* border-radius: 12px; */
+            object-fit: cover;
+            /* background: #181f2a; */
+        }
+
+        .site-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color, #4f8cff);
+            margin: 0;
+        }
+
+        .site-tagline {
+            font-size: 1.1rem;
+            color: #b0b8c9;
+            margin-top: 8px;
+            margin-bottom: 0;
+        }
+        .main-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin: 0;
+        }
+        .main-nav ul {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            width: 100%;
+        }
+        .main-nav a {
+            color: #e6eaf3;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+            font-size: 1rem;
+            padding: 4px 0;
+            position: relative;
+        }
+        .main-nav a:hover,
+        .main-nav a.active,
+        .main-nav li.active > a {
+            color: #4f8cff;
+        }
+        .main-nav a.active,
+        .main-nav li.active > a {
+            font-weight: 700;
+            border-bottom: 2px solid #4f8cff;
+        }
+
+        @media (max-width: 900px) {
+            .header-row {
+                flex-direction: column;
+                gap: 12px;
+                align-items: center;
+            }
+            .main-nav ul {
+                gap: 18px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header-row, .footer-row, .footer-content { padding: 0 8px; }
+            .site-title { font-size: 1.3rem; }
+            .logo { height: 32px; }
+        }
+
+         /* Footer (same as index, but dark) */
+        .site-footer {
+            background: var(--background-alt, #1a2236);
+            border-top: 1px solid var(--border-color, #2e3952);
+            padding: 32px 0 16px 0;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-logo img {
+            /* width: 48px; */
+            height: 48px;
+            border-radius: 12px; 
+            object-fit: cover;
+            margin-bottom: 8px;
+            /* background: #181f2a; */
+        }
+
+        .site-footer p {
+            color: #b0b8c9;
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .footer-social-link {
+            color: var(--primary-color, #4f8cff);
+            font-size: 1.5rem;
+            transition: color 0.2s;
+            text-decoration: none;
+        }
+
+        .footer-social-link:hover {
+            color: #fff;
+        }
+        .section-header {
+            max-width: 1200px;
+            margin: 0 auto 32px auto;
+            padding: 0 20px;
+        }
+        .section-title {
+            text-align: center;
+            background: linear-gradient(135deg, #4f8cff, #1ecbe1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2rem;
+            margin-top: 32px;
+            margin-bottom: 8px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: #b0b8c9;
+            font-size: 1.1rem;
+            margin-bottom: 32px;
+            font-weight: 500;
+        }
+        .joinus-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: rgba(26,34,54,0.95);
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(79,140,255,0.10), 0 2px 8px rgba(0,0,0,0.10);
+            padding: 40px 24px 32px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .joinus-buttons {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+        .joinus-btn {
+            background: linear-gradient(135deg, #4f8cff 0%, #1ecbe1 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 14px 32px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(79, 140, 255, 0.13);
+            transition: background 0.18s, transform 0.18s, box-shadow 0.18s;
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .joinus-btn:hover {
+            background: linear-gradient(135deg, #1ecbe1 0%, #4f8cff 100%);
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 8px 30px rgba(79, 140, 255, 0.18);
+        }
+        .joinus-form {
+            display: none;
+            width: 100%;
+            margin-top: 16px;
+            background: #222b3a;
+            border-radius: 12px;
+            padding: 24px 18px 18px 18px;
+            box-shadow: 0 2px 12px rgba(79,140,255,0.08);
+            animation: fadeIn 0.4s;
+        }
+        .joinus-form.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .form-group {
+            margin-bottom: 18px;
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group label {
+            margin-bottom: 6px;
+            color: #b0b8c9;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 10px 12px;
+            border-radius: 6px;
+            border: 1px solid #2e3952;
+            background: #181f2a;
+            color: #e6eaf3;
+            font-size: 1rem;
+            font-family: inherit;
+            outline: none;
+            transition: border 0.2s;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border: 1.5px solid #4f8cff;
+        }
+        .submit-button {
+            background: linear-gradient(135deg, #4f8cff 0%, #1ecbe1 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 28px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(79, 140, 255, 0.13);
+            transition: background 0.18s, transform 0.18s, box-shadow 0.18s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .submit-button:hover {
+            background: linear-gradient(135deg, #1ecbe1 0%, #4f8cff 100%);
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 8px 30px rgba(79, 140, 255, 0.18);
+        }
+        .close-form {
+            background: none;
+            border: none;
+            color: #b0b8c9;
+            font-size: 1.2rem;
+            float: right;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        @media (max-width: 600px) {
+            .joinus-container { padding: 18px 4vw; }
+            .section-title { font-size: 1.1rem; }
+            .site-title { font-size: 1.3rem; }
+            .logo { height: 32px; }
+        }
+
+        /* Popup Styles */
+        .popup-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(24,31,42,0.85);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .popup-content {
+            background: #232b3e;
+            border-radius: 16px;
+            padding: 32px 28px 24px 28px;
+            box-shadow: 0 8px 32px rgba(79,140,255,0.18);
+            text-align: center;
+            color: #e6eaf3;
+            min-width: 260px;
+        }
+        /* Custom dropdown arrow for all select elements */
+        .form-group select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background: #181f2a url('data:image/svg+xml;utf8,<svg fill="white" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 12px center/18px 18px;
+            padding-right: 38px;
+            cursor: pointer;
+            border: 1px solid #2e3952;
+        }
+
+        .form-group select:focus {
+            border: 1.5px solid #4f8cff;
+            outline: none;
+        }
+
+        /* For better appearance on small screens */
+        @media (max-width: 600px) {
+            .form-group select {
+                background-position: right 8px center;
+                padding-right: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-row">
+            <div class="logo-container">
+                <img src="../../static/images/image.png" alt="CODE CRAFT Logo" class="logo">
+                <span class="site-title">CODE CRAFT</span>
+            </div>
+            <p class="site-tagline">We Believe to Develop a Better Future.</p>
+        </div>
+    </header>
+
+    <!-- Section Title -->
+    <div class="section-header">
+        <h2 class="section-title"><i class="fas fa-user-plus"></i> Join Us</h2>
+                        <hr style="border: none; border-top: 2px solid #2e3952; margin: 24px 0;">
+
+        <p class="section-subtitle">Become a part of CODE CRAFT as a student or join our team!</p>
+    </div>
+
+    <div class="joinus-container">
+        <div class="joinus-buttons">
+            <button class="joinus-btn" id="studentBtn"><i class="fas fa-user-graduate"></i> Join as a Student</button>
+            <button class="joinus-btn" id="teamBtn"><i class="fas fa-users"></i> Join Our Team</button>
+        </div>
+        <!-- Student Form -->
+        <form id="studentForm" class="joinus-form" action="https://formsubmit.co/codecraftoffice01@gmail.com" method="POST">
+            <button type="button" class="close-form" onclick="closeForm('studentForm')"><i class="fas fa-times"></i></button>
+            <input type="hidden" name="_subject" value="New Student Registration">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://codecraftofficial.github.io/thank-you.html">
+            <input type="text" name="_honey" style="display:none">
+            <div class="form-group">
+                <label for="studentName">Full Name</label>
+                <input type="text" id="studentName" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="studentEmail">Email Address</label>
+                <input type="email" id="studentEmail" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="studentPhone">Phone Number</label>
+                <input type="tel" id="studentPhone" name="phone" pattern="[0-9]{10}" required>
+            </div>
+            <div class="form-group">
+                <label for="studentCourse">Interested Course</label>
+                <select id="studentCourse" name="course" required>
+                    <option value="" disabled selected>Select a course</option>
+                    <option>Web Development (HTML/CSS/JS)</option>
+                    <option>Programming Languages (C, C++, Python, Java)</option>
+                    <option>Data Science / Machine Learning</option>
+                    <option>Graphic Design / Canva</option>
+                    <option>Social Media & Content Creation</option>
+                    <option>Video Editing / Reels Creation</option>
+                    <option>Database & Backend</option>
+                    <option>Technical Support / IT Skills</option>
+                    <option>Workshops & Events</option>
+                    <option>Other</option>
+                </select>
+                <input type="text" id="studentCourseOther" name="course_other" placeholder="Please specify if Other" style="display:none; margin-top:8px;">
+            </div>
+            <div class="form-group">
+                <label for="studentMessage">Why do you want to join?</label>
+                <textarea id="studentMessage" name="message" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="submit-button"><i class="fas fa-paper-plane"></i> Submit</button>
+        </form>
+        <!-- Team Form -->
+        <form id="teamForm" class="joinus-form" action="https://formsubmit.co/codecraftoffice01@gmail.com" method="POST">
+            <button type="button" class="close-form" onclick="closeForm('teamForm')"><i class="fas fa-times"></i></button>
+            <input type="hidden" name="_subject" value="New Team Member Application">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://codecraftofficial.github.io/thank-you.html">
+            <input type="text" name="_honey" style="display:none">
+            <div class="form-group">
+                <label for="teamName">Full Name</label>
+                <input type="text" id="teamName" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="teamEmail">Email Address</label>
+                <input type="email" id="teamEmail" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="teamPhone">Phone Number</label>
+                <input type="tel" id="teamPhone" name="phone" pattern="[0-9]{10}" required>
+            </div>
+            <div class="form-group">
+                <label for="teamCity">Your City <span style="color:#4f8cff;font-weight:400;">(Candidates from <b>Mumbai</b> will be majorly preferred)</span></label>
+                <input type="text" id="teamCity" name="city" placeholder="Enter your city" required>
+            </div>
+            <div class="form-group">
+                <label for="teamLocation">Your Location/Area</label>
+                <input type="text" id="teamLocation" name="location" placeholder="e.g. Andheri West, Mumbai" required>
+            </div>
+            <div class="form-group">
+                <label for="teamRole">Role You Want to Join As</label>
+                <select id="teamRole" name="role" required>
+                    <option value="" disabled selected>Select a role</option>
+                    <option>Trainer – Web Development (HTML/CSS/JS)</option>
+                    <option>Trainer – Programming Languages (C, C++, Python, Java)</option>
+                    <option>Trainer – Data Science / Machine Learning</option>
+                    <option>Workshop Coordinator</option>
+                    <option>Graphic Designer / Canva Expert</option>
+                    <option>Social Media Manager</option>
+                    <option>Content Creator – Test Papers & Study Materials</option>
+                    <option>Project/Task Reviewer</option>
+                    <option>Student Support & Communication</option>
+                    <option>Video Editor / Reels Creator</option>
+                    <option>Website Designer (Frontend)</option>
+                    <option>Database & Backend Assistant</option>
+                    <option>Technical Support (During Workshops)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="teamResume">Upload Your Resume <span style="color:#b0b8c9;font-weight:400;">(PDF, DOC, DOCX)</span></label>
+                <input type="file" id="teamResume" name="resume" accept=".pdf,.doc,.docx" required>
+            </div>
+            <div class="form-group">
+                <label for="teamMessage">Why do you want to join our team?</label>
+                <textarea id="teamMessage" name="message" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="submit-button"><i class="fas fa-paper-plane"></i> Submit</button>
+        </form>
+    </div>
+
+    <!-- Thank You Popup -->
+    <div id="thankYouPopup" class="popup-overlay" style="display:none;">
+        <div class="popup-content">
+            <i class="fas fa-check-circle" style="font-size:2.5rem;color:#4f8cff;margin-bottom:12px;"></i>
+            <h2 style="margin:0 0 8px 0;">Thank You!</h2>
+            <p style="margin:0;">Thank you for your interest. We will reach out to you soon.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <img src="../../static/images/image.png" alt="CODE CRAFT Logo">
+            </div>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/codecraftofficial/" target="_blank" aria-label="Instagram" class="footer-social-link"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:codecraftoffice01@gmail.com" target="_blank" aria-label="Email" class="footer-social-link"><i class="fas fa-envelope"></i> </a>
+                <a href="https://youtube.com/@codecraft_offical001?si=N8MZFPzA0-038wJS" target="_blank" aria-label="Youtube" class="footer-social-link"><i class="fab fa-youtube"></i> </a>
+            </div>
+            <p>&copy; 2025 CODE CRAFT. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        // Show/hide forms on button click
+        const studentBtn = document.getElementById('studentBtn');
+        const teamBtn = document.getElementById('teamBtn');
+        const studentForm = document.getElementById('studentForm');
+        const teamForm = document.getElementById('teamForm');
+
+        studentBtn.onclick = function() {
+            studentForm.classList.add('active');
+            teamForm.classList.remove('active');
+            window.scrollTo({ top: studentForm.offsetTop - 80, behavior: 'smooth' });
+        };
+        teamBtn.onclick = function() {
+            teamForm.classList.add('active');
+            studentForm.classList.remove('active');
+            window.scrollTo({ top: teamForm.offsetTop - 80, behavior: 'smooth' });
+        };
+        function closeForm(formId) {
+            document.getElementById(formId).classList.remove('active');
+        }
+        // Hide forms if clicked outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.joinus-container')) {
+                studentForm.classList.remove('active');
+                teamForm.classList.remove('active');
+            }
+        });
+        // Prevent closing when clicking inside form
+        document.querySelectorAll('.joinus-form').forEach(form => {
+            form.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        });
+        // Prevent closing when clicking the buttons
+        studentBtn.addEventListener('click', function(e){ e.stopPropagation(); });
+        teamBtn.addEventListener('click', function(e){ e.stopPropagation(); });
+
+        // Show thank you popup after form submit (no page reload)
+        function showThankYouPopup() {
+            document.getElementById('thankYouPopup').style.display = 'flex';
+            setTimeout(() => {
+                document.getElementById('thankYouPopup').style.display = 'none';
+            }, 3500);
+        }
+
+        // Handle form submissions
+        async function handleFormSubmit(form, formData) {
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (!response.ok) {
+                    console.error('Form submission error:', response.status);
+                }
+            } catch (error) {
+                console.error('Form submission error:', error);
+            }
+        }
+
+        // Attach to both forms
+        document.getElementById('studentForm').addEventListener('submit', async function(e){
+            e.preventDefault();
+            const formData = new FormData(this);
+            
+            // Show popup and reset form immediately
+            showThankYouPopup();
+            this.reset();
+            closeForm('studentForm');
+            
+            // Handle submission in background
+            await handleFormSubmit(this, formData);
+        });
+
+        document.getElementById('teamForm').addEventListener('submit', async function(e){
+            e.preventDefault();
+            const formData = new FormData(this);
+            
+            // Show popup and reset form immediately
+            showThankYouPopup();
+            this.reset();
+            closeForm('teamForm');
+            
+            // Handle submission in background
+            await handleFormSubmit(this, formData);
+        });
+
+        // Show textbox if "Other" is selected in course dropdown
+        document.getElementById('studentCourse').addEventListener('change', function() {
+            var otherInput = document.getElementById('studentCourseOther');
+            if(this.value === 'Other') {
+                otherInput.style.display = 'block';
+                otherInput.required = true;
+            } else {
+                otherInput.style.display = 'none';
+                otherInput.required = false;
+            }
+        });
+    </script>
+</body>
+</html>

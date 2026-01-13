@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Courses | CODE CRAFT</title>
+    <meta name="description" content="Explore CODE CRAFT's comprehensive programming courses in Mumbai. Learn web development, Python, Java, C++, and more with expert trainers. Hands-on projects and practical training.">
+    <meta name="keywords" content="programming courses Mumbai, web development training, Python course, Java training, C++ programming, coding classes, software development courses, database management, ethical hacking course">
+    <meta name="author" content="CODE CRAFT">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="CODE CRAFT Courses - Programming & Web Development Training">
+    <meta property="og:description" content="Master programming with CODE CRAFT's expert-led courses. From web development to Python, Java, and more. Practical training with real-world projects.">
+    <meta property="og:image" content="../../static/images/codecraft.png">
+    <meta property="og:url" content="https://codecraftofficial.com/courses">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CODE CRAFT Courses - Programming & Web Development Training">
+    <meta name="twitter:description" content="Master programming with CODE CRAFT's expert-led courses. From web development to Python, Java, and more. Practical training with real-world projects.">
+    <meta name="twitter:image" content="../../static/images/codecraft.png">
+    <link rel="canonical" href="https://codecraftofficial.com/courses">
+    <link rel="icon" href="../../static/images/image.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* ===== CODE CRAFT Courses Page Styles (DARK THEME) ===== */
+
+        /* General Page Background */
+        body {
+            background: linear-gradient(135deg, #181f2a 0%, #232b3e 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+            color: var(--text-color, #e6eaf3);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Dark Theme Variables */
+        :root {
+            --background-color: #232b3e;
+            --background-alt: #1a2236;
+            --primary-color: #4f8cff;
+            --secondary-color: #1ecbe1;
+            --text-color: #e6eaf3;
+            --border-color: #2e3952;
+            --shadow-md: 0 4px 24px rgba(0,0,0,0.25);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.35);
+        }
+
+        /* Header */
+        .site-header {
+            background: var(--background-color, #232b3e);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+            padding: 24px 0 12px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .logo {
+            height: 48px;
+            object-fit: cover;
+        }
+
+        .site-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color, #4f8cff);
+            margin: 0;
+        }
+
+        /* Main Content */
+        .courses-main.section {
+            padding: 48px 0 32px 0;
+            min-height: 70vh;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-color, #4f8cff);
+            margin-bottom: 8px;
+        }
+
+        .section-subtitle {
+            color: #b0b8c9;
+            font-size: 1.2rem;
+            margin-bottom: 0;
+        }
+
+        /* Courses Grid */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Course Card */
+        .course-card {
+            background: var(--background-alt, #1a2236);
+            border-radius: 18px;
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            border: 1px solid var(--border-color, #2e3952);
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        }
+
+        .course-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(79,140,255,0.1) 0%, rgba(30,203,225,0.1) 100%);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .course-icon i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        .course-content {
+            padding: 24px;
+        }
+
+        .course-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+        }
+
+        .course-description {
+            color: #b0b8c9;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .course-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 24px 0;
+        }
+
+        .course-features li {
+            color: #8fa2c7;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .course-features li i {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            width: 16px;
+        }
+
+        .enquire-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .enquire-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(79,140,255,0.3);
+        }
+
+        /* Special Course Categories */
+        .course-card.programming {
+            border-left: 4px solid #ff6b6b;
+        }
+
+        .course-card.web-dev {
+            border-left: 4px solid #4ecdc4;
+        }
+
+        .course-card.data-ai {
+            border-left: 4px solid #45b7d1;
+        }
+
+        .course-card.design {
+            border-left: 4px solid #f9ca24;
+        }
+
+        .course-card.security {
+            border-left: 4px solid #f0932b;
+        }
+
+        .course-card.tools {
+            border-left: 4px solid #eb4d4b;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Footer */
+        .site-footer {
+            background: var(--background-alt, #1a2236);
+            border-top: 1px solid var(--border-color, #2e3952);
+            padding: 32px 0 16px 0;
+            text-align: center;
+            margin-top: 64px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-logo img {
+            height: 48px;
+            border-radius: 12px; 
+            object-fit: cover;
+            margin-bottom: 8px;
+        }
+
+        .site-footer p {
+            color: #b0b8c9;
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .footer-social-link {
+            color: var(--primary-color, #4f8cff);
+            font-size: 1.5rem;
+            transition: color 0.2s;
+            text-decoration: none;
+        }
+
+        .footer-social-link:hover {
+            color: #fff;
+        }
+
+        /* Animated Background */
+        .courses-animated-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .bg-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.12;
+            filter: blur(2px);
+            animation-timing-function: ease-in-out;
+        }
+
+        .shape1 {
+            width: 280px; height: 280px;
+            background: linear-gradient(135deg, #4f8cff 60%, #1ecbe1 100%);
+            top: -60px; left: -60px;
+            animation: float1 8s cubic-bezier(.4,1.6,.6,1) infinite alternate;
+        }
+        .shape2 {
+            width: 180px; height: 180px;
+            background: linear-gradient(135deg, #1ecbe1 60%, #4f8cff 100%);
+            bottom: 15%; right: 10%;
+            animation: float2 9s cubic-bezier(.4,1.6,.6,1) infinite alternate;
+        }
+        .shape3 {
+            width: 120px; height: 120px;
+            background: linear-gradient(135deg, #fff 0%, #4f8cff 100%);
+            top: 20%; right: 15%;
+            animation: float3 10s cubic-bezier(.4,1.6,.6,1) infinite alternate;
+            opacity: 0.08;
+        }
+        .shape4 {
+            width: 100px; height: 100px;
+            background: linear-gradient(135deg, #1ecbe1 0%, #fff 100%);
+            bottom: 25%; left: 15%;
+            animation: float4 11s cubic-bezier(.4,1.6,.6,1) infinite alternate;
+            opacity: 0.10;
+        }
+
+        @keyframes float1 {
+            0% { transform: translateY(0) scale(1);}
+            50% { transform: translateY(50px) scale(1.05);}
+            100% { transform: translateY(0) scale(1);}
+        }
+        @keyframes float2 {
+            0% { transform: translateY(0) scale(1);}
+            50% { transform: translateY(-35px) scale(1.08);}
+            100% { transform: translateY(0) scale(1);}
+        }
+        @keyframes float3 {
+            0% { transform: translateY(0) scale(1);}
+            50% { transform: translateY(25px) scale(1.03);}
+            100% { transform: translateY(0) scale(1);}
+        }
+        @keyframes float4 {
+            0% { transform: translateY(0) scale(1);}
+            50% { transform: translateY(-25px) scale(1.10);}
+            100% { transform: translateY(0) scale(1);}
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .courses-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                padding: 0 16px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1rem;
+            }
+            
+            .course-content {
+                padding: 20px;
+            }
+        }
+
+        /* Ensure main content is above background */
+        body > *:not(.courses-animated-bg) {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="courses-animated-bg">
+        <div class="bg-shape shape1"></div>
+        <div class="bg-shape shape2"></div>
+        <div class="bg-shape shape3"></div>
+        <div class="bg-shape shape4"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo-container">
+                <img src="../../static/images/image.png" alt="CODE CRAFT Logo" class="logo"  height="48" fetchpriority="high" decoding="sync">
+                <h1 class="site-title">CODE CRAFT</h1>
+            </div>
+            <p class="site-tagline">We Believe to Develop a Better Future.</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="courses-main section">
+        <div class="container">
+            <header class="section-header">
+                <h2 class="section-title">Master the Skills That Matter</h2>
+                <hr style="border: none; border-top: 2px solid #2e3952; margin: 24px 0;">
+                <p class="section-subtitle">From beginner to expert – choose your path to success</p>
+            </header>
+
+            <!-- Courses Grid -->
+            <div class="courses-grid">
+                <!-- HTML & CSS -->
+                <article class="course-card web-dev">
+                    <div class="course-icon">
+                        <i class="fab fa-html5" style="color:#e44d26"></i>
+                        <i class="fab fa-css3-alt" style="color:#1572b6; margin-left:8px;"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">HTML & CSS</h3>
+                        <p class="course-description">Foundation of the web – build your own websites from scratch!</p>
+                        <ul class="course-features">
+                            <li><i class="fas fa-check"></i> Learn semantic HTML structure</li>
+                            <li><i class="fas fa-check"></i> Master CSS styling & layouts</li>
+                            <li><i class="fas fa-check"></i> Build responsive web pages</li>
+                            <li><i class="fas fa-check"></i> Hands-on projects included</li>
+                        </ul>
+                        <a href="../../index.html#contact" class="enquire-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Enquire This Course
+                        </a>
+                    </div>
+                </article>
+
+                <!-- JavaScript -->
+                <article class="course-card web-dev">
+                    <div class="course-icon">
+                        <i class="fab fa-js-square" style="color:#f7df1e"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">JavaScript</h3>
+                        <p class="course-description">Journey from static to dynamic – add magic and logic to your sites!</p>
+                        <ul class="course-features">
+                            <li><i class="fas fa-check"></i> Core JavaScript fundamentals</li>
+                            <li><i class="fas fa-check"></i> DOM manipulation & events</li>
+                            <li><i class="fas fa-check"></i> Modern ES6+ features</li>
+                            <li><i class="fas fa-check"></i> Interactive web applications</li>
+                        </ul>
+                        <a href="../../index.html#contact" class="enquire-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Enquire This Course
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Bootstrap & Responsive Design -->
+                <article class="course-card web-dev">
+                    <div class="course-icon">
+                        <i class="fab fa-bootstrap" style="color:#7952b3"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Bootstrap & Responsive Design</h3>
+                        <p class="course-description">Look great on every screen – mobile or desktop!</p>
+                        <ul class="course-features">
+                            <li><i class="fas fa-check"></i> Bootstrap framework mastery</li>
+                            <li><i class="fas fa-check"></i> Mobile-first design approach</li>
+                            <li><i class="fas fa-check"></i> Grid system & components</li>
+                            <li><i class="fas fa-check"></i> Cross-device compatibility</li>
+                        </ul>
+                        <a href="../../index.html#contact" class="enquire-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Enquire This Course
+                        </a>
+                    </div>
+                </article>
+
+                <!-- C Programming -->
+                <article class="course-card programming">
+                    <div class="course-icon">
+                        <span style="color:#00599c;font-family:monospace;font-size:2.5rem;font-weight:bold;">C</span>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">C Programming</h3>
+                        <p class="course-description">First step in programming – connect directly with core concepts!</p>
+                        <ul class="course-features">
+                            <li><i class="fas fa-check"></i> Programming fundamentals</li>
+                            <li><i class="fas fa-check"></i> Memory management basics</li>
+                            <li><i class="fas fa-check"></i> Recursions & Structure</li>
+                            <li><i class="fas fa-check"></i> Problem-solving techniques</li>
+                        </ul>
+                        <a href="../../index.html#contact" class="enquire-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Enquire This Course
+                        </a>
+                    </div>
+                </article>
+
+                <!-- C++ -->
+                <article class="course-card programming">
+                    <div class="course-icon">
+                        <span style="color:#00599c;font-family:monospace;font-size:2.5rem;font-weight:bold;">C++</span>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">C++</h3>
+                        <p class="course-description">Speed and power combined – master OOPs super tricks!</p>
+                        <ul class="course-features">
+                            <li><i class="fas fa-check"></i> Object-oriented programming</li>
+                            <li><i class="fas fa-check"></i> Advanced C++ features</li>
+                            <li><i class="fas fa-check"></i> Data structures & algorithms</li>
+                            <li><i class="fas fa-check"></i> Performance optimization</li>
+                        </ul>
+                        <a href="../../index.html#contact" class="enquire-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Enquire This Course
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Java -->
+                <article class="course-card programming">
+                    <div class="course-icon">
+                        <i class="fab fa-java" style="color:#f89820"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Java</h3>
+                        <p class="course-description">Write once, run anywhere – cover both apps and logic!</p>
+                        <ul class="course-features">
+                            <li><i class="fas fa-check"></i> Platform-independent coding</li>
+                            <li><i class="fas fa-check"></i> OOP concepts in Java</li>
+                            <li><i class="fas fa-check"></i> Exception handling</li>
+                            <li><i class="fas fa-check"></i> GUI development basics</li>
+                        </ul>
+                        <a href="../../index.html#contact" class="enquire-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Enquire This Course
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Python -->
+                <article class="course-card programming">
+                    <div class="course-icon">
+                        <i class="fab fa-python" style="color:#3776ab"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Python</h3>
+                        <p class="course-description">The easiest and smartest – king of scripting and logic!</p>
+                        <ul class="course-features">
+                            <li><i class="fas fa-check"></i> Beginner-friendly syntax</li>
+                            <li><i class="fas fa-check"></i> Libraries</li>
+                            <li><i class="fas fa-check"></i> Web development with Flask</li>
+                            <li><i class="fas fa-check"></i> Data manipulation & analysis</li>
+                        </ul>
+                        <a href="../../index.html#contact" class="enquire-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Enquire This Course
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Machine Learning with Python -->
+                <!-- <article class="course-card data-ai">
+                    <div class="course-icon">
+                        <i class="fas fa-robot" style="color:#4f8cff"></i>
+                        <i class="fab fa-python" style="color:#3776ab; margin-left:8px;"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Machine Learning with Python</h3>
+                        <p class="course-description">Gateway to AI – predict the future with data!</p>
+                        <ul class="course-features">
+                            <li><i class="fas fa-check"></i> ML algorithms & concepts</li>
+                            <li><i class="fas fa-check"></i> Data preprocessing techniques</li>
+                            <li><i class="fas fa-check"></i> TensorFlow & scikit-learn</li>
+                            <li><i class="fas fa-check"></i> Real-world projects</li>
+                        </ul>
+                        <a href="../../index.html#contact" class="enquire-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Enquire This Course
+                        </a>
+                    </div>
+                </article> -->
+
+                <!-- DBMS -->
+                <article class="course-card data-ai">
+                    <div class="course-icon">
+                        <i class="fas fa-database" style="color:#1ecbe1"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">DBMS (Database Management)</h3>
+                        <p class="course-description">Master of data – store, manage, and retrieve with logic!</p>
+                        <ul class="course-features">
+                            <li><i class="fas fa-check"></i> Database design principles</li>
+                            <li><i class="fas fa-check"></i> SQL query mastery</li>
+                            <li><i class="fas fa-check"></i> Normalization & optimization</li>
+                            <li><i class="fas fa-check"></i> MySQL </li>
+                        </ul>
+                        <a href="../../index.html#contact" class="enquire-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Enquire This Course
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Ethical Hacking -->
+                <!-- <article class="course-card security">
+                    <div class="course-icon">
+                        <i class="fas fa-user-secret" style="color:#e74c3c"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Ethical Hacking</h3>
+                        <p class="course-description">Be secure, think like a hacker – responsibly!</p>
+                        <ul class="course-features">
+                            <li><i class="fas fa-check"></i> Cybersecurity fundamentals</li>
+                            <li><i class="fas fa-check"></i> Penetration testing basics</li>
+                            <li><i class="fas fa-check"></i> Network security analysis</li>
+                            <li><i class="fas fa-check"></i> Ethical hacking tools</li>
+                        </ul>
+                        <a href="../../index.html#contact" class="enquire-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Enquire This Course
+                        </a>
+                    </div>
+                </article> -->
+
+                <!-- Canva Mastery -->
+                <article class="course-card design">
+                    <div class="course-icon">
+                        <img src="https://static.canva.com/static/images/favicon.ico" alt="Canva" style="height:2.2rem;width:2.2rem;border-radius:8px;background:#fff;">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Canva Mastery</h3>
+                        <p class="course-description">Design like a pro – no code, no stress!</p>
+                        <ul class="course-features">
+                            <li><i class="fas fa-check"></i> Professional design principles</li>
+                            <li><i class="fas fa-check"></i> Social media graphics</li>
+                            <li><i class="fas fa-check"></i> Branding & marketing materials</li>
+                            <li><i class="fas fa-check"></i> Animation & video editing</li>
+                        </ul>
+                        <a href="../../index.html#contact" class="enquire-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Enquire This Course
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Version Control & Git -->
+                <article class="course-card tools">
+                    <div class="course-icon">
+                        <i class="fab fa-git-alt" style="color:#f34f29"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Version Control & Git</h3>
+                        <p class="course-description">Track code changes – build smart with your team!</p>
+                        <ul class="course-features">
+                            <li><i class="fas fa-check"></i> Git fundamentals & workflow</li>
+                            <li><i class="fas fa-check"></i> GitHub collaboration</li>
+                            <li><i class="fas fa-check"></i> Branching & merging</li>
+                            <li><i class="fas fa-check"></i> Code review processes</li>
+                        </ul>
+                        <a href="../../index.html#contact" class="enquire-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Enquire This Course
+                        </a>
+                    </div>
+                </article>
+
+                <!-- SDLC -->
+                <article class="course-card tools">
+                    <div class="course-icon">
+                        <i class="fas fa-project-diagram" style="color:#1ecbe1"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">SDLC (Software Development Life Cycle)</h3>
+                        <p class="course-description">Complete software journey – from idea to execution!</p>
+                        <ul class="course-features">
+                            <li><i class="fas fa-check"></i> Project planning & analysis</li>
+                            <li><i class="fas fa-check"></i> Design & development phases</li>
+                            <li><i class="fas fa-check"></i> Testing & deployment</li>
+                            <li><i class="fas fa-check"></i> Maintenance & updates</li>
+                        </ul>
+                        <a href="../../index.html#contact" class="enquire-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Enquire This Course
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Operating System (Linux Basics) -->
+                <article class="course-card tools">
+                    <div class="course-icon">
+                        <i class="fab fa-linux" style="color:#fcc624"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Operating System (Linux Basics)</h3>
+                        <p class="course-description">Enjoy the command line – explore the real system inside!</p>
+                        <ul class="course-features">
+                            <li><i class="fas fa-check"></i> Linux fundamentals</li>
+                            <li><i class="fas fa-check"></i> Command line mastery</li>
+                            <li><i class="fas fa-check"></i> File system navigation</li>
+                            <li><i class="fas fa-check"></i> System administration basics</li>
+                        </ul>
+                        <a href="../../index.html#contact" class="enquire-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Enquire This Course
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <img src="../../static/images/image.png" alt="CODE CRAFT Logo">
+            </div>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/codecraftofficial/" target="_blank" aria-label="Instagram" class="footer-social-link"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:codecraftoffice01@gmail.com" target="_blank" aria-label="Email" class="footer-social-link"><i class="fas fa-envelope"></i></a>
+                <a href="https://youtube.com/@codecraft_offical001?si=N8MZFPzA0-038wJS" target="_blank" aria-label="Youtube" class="footer-social-link"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2025 CODE CRAFT. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
